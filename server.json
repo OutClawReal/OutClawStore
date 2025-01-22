@@ -1,0 +1,57 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+require('dotenv').config();
+
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// MongoDB Connection (using environment variable)
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/newsletter', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// Create a Schema and Model for Subscribers
+const subscriberSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+});
+
+const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+
+// POST Route to subscribe to the newsletter
+app.post('/subscribe', async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: 'Email is required' });
+  }
+
+  try {
+    const existingSubscriber = await Subscriber.findOne({ email });
+    if (existingSubscriber) {
+      return res.status(400).json({ message: 'This email is already subscribed' });
+    }
+
+    const newSubscriber = new Subscriber({ email });
+    await newSubscriber.save();
+
+    res.status(200).json({ message: 'Successfully subscribed!' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+app.use(express.static('public'));
