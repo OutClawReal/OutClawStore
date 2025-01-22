@@ -1,0 +1,163 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #000000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding-block: -10px;
+}
+
+/* Header */
+header {
+  background-color: #170e03;
+  color: #fff;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#site-title {
+  font-size: 2rem;
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+
+}
+
+.navbar li {
+  font-size: 1rem;;
+}
+
+.navbar li a {
+  color: white;
+  transition: color .3s;
+  margin-left: 20%;
+}
+
+.navbar li a:hover {
+  color: #301d08;
+  background-color: beige;
+  margin-left: 20%;
+  padding: 1rem;
+}
+
+.navbar li b {
+  color: white;
+  transition: color .3s;
+  margin-left: 2rem;
+}
+
+.navbar li b:hover {
+  color: #301d08;
+  background-color: beige;
+  margin-left: 2rem;
+  padding: 1rem;
+}
+
+.navbar li c {
+  color: white;
+  transition: color .3s;
+  margin-left: 1rem;
+}
+
+.navbar li c:hover {
+  color: #301d08;
+  background-color: beige;
+  margin-left: 1rem;
+  padding: 1rem;
+}
+
+.navbar li d {
+  color: white;
+  transition: color .3s;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.navbar li d:hover {
+  color: #301d08;
+  background-color: beige;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+}
+
+/* Intro Section */
+.text-over-image {
+  background: url(bgindex.jpg) no-repeat center center/cover;
+  text-align: center;
+  padding: 5rem 2rem;
+  color: rgb(255, 255, 255);
+  font-: italic;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+/* About Section */
+.about-section {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.portrait {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #170e03;
+}
+
+.message {
+  max-width: 600px;
+}
+
+.message h2 {
+  margin-bottom: 0.5rem;
+  color: #170e03;
+}
+
+.message p {
+  color: #000000;
+}
+
+/* Misc Section */
+.misc-section {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  text-align: center;
+}
+
+.misc-section h2 {
+  margin-bottom: 1rem;
+  color: #170e03;
+}
+
+.misc-section p {
+  color: #000000;
+}
+
+/* Footer */
+footer {
+  background-color: #170e03;
+  color: white;
+  text-align: center;
+  padding: .5rem 0;
+}
